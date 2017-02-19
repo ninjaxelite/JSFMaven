@@ -90,6 +90,7 @@
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
+					<packagingExcludes>WEB-INF/lib/javaee-web-api*.jar</packagingExcludes>
                 </configuration>
             </plugin>
 			<plugin>
