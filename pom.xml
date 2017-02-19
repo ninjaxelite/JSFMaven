@@ -15,11 +15,11 @@
     </properties>
     
     <dependencies>
-        <!--<dependency>
+        <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.faces</artifactId>
             <version>2.2.7</version>
-        </dependency>-->
+        </dependency>
 		<!-- https://mvnrepository.com/artifact/javax.faces/jsf-api -->
 		<dependency>
 			<groupId>javax.faces</groupId>
@@ -31,17 +31,24 @@
             <artifactId>primefaces</artifactId>
             <version>5.0</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
+        </dependency>-->
+        <!--<dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-impl</artifactId>
             <version>2.2.2</version>
-        </dependency>
+        </dependency>-->
+		<dependency>
+		  <groupId>org.jboss.spec</groupId>
+		  <artifactId>jboss-javaee-6.0</artifactId>
+		  <version>3.0.3.Final</version>
+		  <type>pom</type>
+		  <scope>provided</scope>
+		</dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -80,6 +87,11 @@
             <url>http://repository.primefaces.org</url>
             <layout>default</layout>
         </repository>
+		<repository>
+		  <id>repository.jboss.org-public</id>
+		  <name>JBoss repository</name>
+		  <url>https://repository.jboss.org/nexus/content/groups/public</url>
+		</repository>
     </repositories>
 
     <build>
@@ -96,7 +108,7 @@
                     <compilerArguments>
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
-					<packagingExcludes>WEB-INF/lib/javaee-web-api*.jar</packagingExcludes>
+					<!--<packagingExcludes>WEB-INF/lib/javaee-web-api*.jar</packagingExcludes>-->
                 </configuration>
             </plugin>
 			<plugin>
