@@ -44,7 +44,7 @@
 		<dependency>
 		  <groupId>org.jboss.spec</groupId>
 		  <artifactId>jboss-javaee-6.0</artifactId>
-		  <version>1.0.0.Final</version>
+		  <version>3.0.3.Final</version>
 		  <type>pom</type>
 		  <scope>provided</scope>
 		</dependency>
@@ -118,7 +118,7 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
-			<plugin>
+			<!--<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>2.6</version>
@@ -138,7 +138,28 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin>-->
+			<plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.3</version>
+          <executions>
+              <execution>
+                  <phase>package</phase>
+                  <goals><goal>copy</goal></goals>
+                  <configuration>
+                      <artifactItems>
+                          <artifactItem>
+                              <groupId>com.github.jsimone</groupId>
+                              <artifactId>webapp-runner</artifactId>
+                              <version>8.5.11.2</version>
+                              <destFileName>webapp-runner.jar</destFileName>
+                          </artifactItem>
+                      </artifactItems>
+                  </configuration>
+              </execution>
+          </executions>
+      </plugin>
 		</plugins>
     </build>
 
