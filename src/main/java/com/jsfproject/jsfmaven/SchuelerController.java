@@ -11,9 +11,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import model.Schueler;
@@ -26,7 +25,7 @@ import org.primefaces.model.TreeNode;
  *
  * @author 20100435
  */
-@ManagedBean(name = "schuelerCon")
+@Named(value = "schuelerCon")
 @SessionScoped
 public class SchuelerController implements Serializable {
 
