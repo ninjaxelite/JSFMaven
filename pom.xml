@@ -84,7 +84,7 @@
     </repositories>
 
     <build>
-		<finalName>bookmarxrus</finalName>
+		<finalName>JSFMaven</finalName>
 
 		<plugins>
 
