@@ -45,11 +45,11 @@
 		</dependency>
 		
         <!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
-		<!--dependency>
+		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>6.0</version>
-		</dependency-->
+			<version>5.0</version>
+		</dependency>
 		
 		<dependency>
 			<groupId>javax.servlet</groupId>
