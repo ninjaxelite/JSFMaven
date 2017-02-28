@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Schülerverwaltung</title>
+    </h:head>
+    <h:body>
+        <div style="display: table;margin: 0 auto;">
+            <h:form id="form">
+                <p:growl autoUpdate="true"/>
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Vorname:"/>
+                    <p:inputText value="#{sCon.schueler.vorname}"
+                                 required="true"
+                                 requiredMessage="Vorname fehlt!"/>
+                    <p:outputLabel value="Nachname:"/>
+                    <p:inputText value="#{sCon.schueler.nachname}"
+                                 required="true"
+                                 requiredMessage="Nachname fehlt!"/>
+                    <p:outputLabel value="Geschlecht:"/>
+                    <p:selectOneRadio value="#{sCon.schueler.geschlecht}" 
+                                      requiredMessage="Geschlecht auswählen"
+                                      required="true">
+                        <f:selectItem itemLabel="M" itemValue="m"/>
+                        <f:selectItem itemLabel="W" itemValue="w"/>
+                    </p:selectOneRadio>
+                </p:panelGrid>
+                <br />
+                <p:commandButton value="Neuen Schüler aufnehmen" update="tree"
+                                 actionListener="#{sCon.schuelerSpeichern}"/>
+                <br /><br />
+                <p:tree id="tree"
+                    value="#{sCon.rootNode}"
+                             style="width: 800px"
+                             selectionMode="single"
+                             selection="#{sCon.selectedPupil}"
+                             var="s">
+                    <p:ajax event="select" 
+                            listener="#{sCon.showPupilDetails}"/>
+                    <p:treeNode>
+                        <p:outputLabel value="#{s}"/>
+                    </p:treeNode>
+                    <p:treeNode type="schueler">
+                        <p:outputLabel value="#{s}"/>
+                    </p:treeNode>
+                    <p:treeNode type="bereich">
+                        <p:outputLabel value="#{s}"/>
+                    </p:treeNode>
+                </p:tree>
+                <br />
+                <p:outputLabel id="output" style="font-size: 18px" 
+                               value="#{sCon.schuelerDetails.nr} 
+                               #{sCon.schuelerDetails.vorname} 
+                               #{sCon.schuelerDetails.nachname} 
+                               #{sCon.schuelerDetails.geschlecht}" />
+                <p:remoteCommand name="showPupil" update=":form:output"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>
